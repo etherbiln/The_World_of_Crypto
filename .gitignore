@@ -1,0 +1,32 @@
+node_modules/
+.env
+*.log
+dist/
+build/
+.cache/
+coverage/
+artifacts/
+out/
+typechain/
+hardhat-cache/
+hardhat-network-*
+
+# VSCode
+.vscode/
+*.code-workspace
+
+# MacOS
+.DS_Store
+
+# Linux
+*.swp
+
+# Windows
+Thumbs.db
+
+# Solidity specific
+*.sol.js
+*.sol.ts
+
+# Package lock files
+package-lock.json
