@@ -59,7 +59,7 @@
 ### Steps
 #### Clone Repository:
 ```bash
-git clone https://github.com/worldofcrypto/The_World_of_Cyrpto.git
+git clone https://github.com/The_World_of_Cyrpto.git
 cd WoC
 ```
 #### Install Dependencies:
@@ -77,7 +77,6 @@ npx hardhat run scripts/deploy.js --network sepolia
 REACT_APP_CONTRACT_ADDRESS=0x...
 REACT_APP_INFURA_ID=your_infura_key
 ```
-
 ---
 
 ## Configuration
@@ -92,7 +91,7 @@ REACT_APP_INFURA_ID=your_infura_key
 
 | Risk | Mitigation |
 |------|-----------|
-| High Gas Fees | Deploy on Polygon; batch transactions. |
+| High Gas Fees | Deploy on Layer2s; batch transactions. |
 | Security Vulnerabilities | Audit contracts via CertiK/OpenZeppelin. |
 | NFT Verification Bugs | Implement unit tests for ownership checks. |
 | Player Drop-off | Dynamic rewards algorithm (adjust based on activity). |
