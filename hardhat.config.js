@@ -9,10 +9,10 @@ module.exports = {
   solidity: {
     compilers: [
       {
-        version: "0.8.20",  // Kendi kontratlarınız için
+        version: "0.8.20",
       },
       {
-        version: "0.8.6",   // Chainlink ve diğer bağımlılıklar için
+        version: "0.8.6",
       },
     ],
   },

@@ -9,33 +9,25 @@ import "./AntiExploit.sol";
 import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
-contract WorldOfCyrpto {
+contract WorldOfCrypto {
     GameMaster public gameMaster;
     Randomness public randomness;
     RewardCalculator public rewardCalculator;
     CountryRegistry public countryRegistry;
     AntiExploit public antiExploit;
-
     IERC721 public treasureNFT;
     IERC20 public woC;
 
-    mapping(address => uint256) public playerEnergy;
+
     mapping(address => uint256) public lastExplorationTime;
-
-    uint256 public constant ENERGY_COST = 1;
-    uint256 public constant ENERGY_RECHARGE_TIME = 3600; // 1 saat
-
-    
-    mapping(address => mapping(uint256 => bool)) public completedQuests;
     mapping(uint256 => uint256) public questRewards;
 
     // Oyuncu verisi
+    address[] public playersInGame;
     mapping(address => bool) public isInGame;
     
-    address[] public playersInGame;
 
     constructor(
-        address _gameMasterAddress,
         address _randomnessAddress,
         address _rewardCalculatorAddress,
         address _countryRegistryAddress,
@@ -43,13 +35,12 @@ contract WorldOfCyrpto {
         address _treasureNFTAddress,
         address _woC
     ) {
-        gameMaster = GameMaster(_gameMasterAddress);
-        randomness = Randomness(_randomnessAddress);
         rewardCalculator = RewardCalculator(_rewardCalculatorAddress);
         countryRegistry = CountryRegistry(_countryRegistryAddress);
-        antiExploit = AntiExploit(_antiExploitAddress);
         treasureNFT = IERC721(_treasureNFTAddress);
         woC = IERC20(_woC);
+        randomness = Randomness(_randomnessAddress);
+        antiExploit = AntiExploit(_antiExploitAddress);
     }
 
     // Oyuncunun oyuna katılmasını sağlar
@@ -107,32 +98,18 @@ contract WorldOfCyrpto {
     
     // Oyuncu bir ülkeyi ziyaret eder ve keşif yapar
     function visitCountry(uint256 countryId) public onlyPlayer {
-        
         uint256 visitCost = countryRegistry.getCountry(countryId).visitCost;
         require(
             woC.balanceOf(msg.sender) >= visitCost,
             "Not enough tokens to visit this country"
         );
         woC.transferFrom(msg.sender, address(this), visitCost);
-
+        // 
         require(antiExploit.canExplore(msg.sender), "Too many explorations in a short time");
-
         lastExplorationTime[msg.sender] = block.timestamp;
-        
+        //
         countryRegistry.recordVisit(msg.sender, countryId);
-    }
-
-    
-
-    // Enerji yenileme
-    function rechargeEnergy() public {
-        uint256 timeSinceLastExploration = block.timestamp - lastExplorationTime[msg.sender];
-        uint256 energyToAdd = timeSinceLastExploration / ENERGY_RECHARGE_TIME;
-
-        if (energyToAdd > 0) {
-            playerEnergy[msg.sender] += energyToAdd;
-            lastExplorationTime[msg.sender] = block.timestamp;
-        }
+        
     }
 
     // Oyuncunun oyun içerisinde olup olmadığını kontrol et
