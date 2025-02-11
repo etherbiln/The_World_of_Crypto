@@ -21,6 +21,10 @@ module.exports = {
       url: process.env.INFURA_SEPOLIA_URL,
       accounts: [process.env.PRIVATE_KEY],
     },
+    tabi: {
+      url: "https://rpc.testnetv2.tabichain.com/",
+      accounts: [process.env.PRIVATE_KEY],
+    },
     hardhat: {
       chainId: 1337,
       blockGasLimit: 30000000,
