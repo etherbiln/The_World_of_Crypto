@@ -22,7 +22,7 @@ module.exports = {
       accounts: [process.env.PRIVATE_KEY],
     },
     tabi: {
-      url: "https://rpc.testnetv2.tabichain.com/",
+      url: "https://rpc.testnetv2.tabichain.com",
       accounts: [process.env.PRIVATE_KEY],
     },
     hardhat: {

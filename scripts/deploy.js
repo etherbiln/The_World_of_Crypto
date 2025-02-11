@@ -11,10 +11,10 @@ async function main() {
     console.log("WoC Token deployed to:", await woC.getAddress());
 
     // Deploy PlayerNFT
-    const PlayerNFT = await ethers.getContractFactory("PlayerNFT");
+    const PlayerNFT = await ethers.getContractFactory("Worlds");
     const playerNFT = await PlayerNFT.deploy();
     await playerNFT.waitForDeployment();
-    console.log("PlayerNFT deployed to:", await playerNFT.getAddress());
+    console.log("Worlds deployed to:", await playerNFT.getAddress());
 
     // Deploy AntiExploit
     const AntiExploit = await ethers.getContractFactory("AntiExploit");

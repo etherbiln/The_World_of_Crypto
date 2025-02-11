@@ -18,7 +18,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract  WoC is ERC20 {
     constructor() ERC20("The World of Cyrpto", "WoC") {
-
+        _mint(msg.sender,100000*10**18);
     }
     
 }

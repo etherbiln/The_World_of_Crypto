@@ -1,40 +1,45 @@
 // SPDX-License-Identifier: SEE LICENSE IN LICENSE
 pragma solidity ^0.8.2;
 
+import "./random/Randomness.sol";
+
 contract CountryRegistry {
+    address public admin;
+    // Randomness public randomness;
     
     struct Country {
         uint256 id;
         string name;
         uint256 visitCost;
+        bool treasure;
+        bool package;
     }
 
     Country[] public countries;
-    
+    uint256 public countryCount;
+
+    address[] public players;
     mapping(address => uint256[]) public playerVisits;
     
-    address public admin;
-
-    // Oyuncuların adreslerini saklayan liste (mapping’i sıfırlamak için)
-    address[] public players;
-
+   
     constructor() {
         admin = msg.sender;
+        //randomness = Randomness(_randomness);
     }
 
     function addCountry(uint256 id, string memory name, uint256 visitCost) public onlyAdmin {
-        countries.push(Country(id, name, visitCost));
+        countries.push(Country(id, name, visitCost, false, false));
+        countryCount++;
     }
-
-    function recordVisit(address player, uint256 countryId) public {
+    
+    function recordVisit(address player, uint256 countryId) public returns(bool) {
         require(countryId < countries.length, "Country does not exist");
         
-        // Eğer oyuncu daha önce hiç ziyaret kaydetmemişse, adresini listeye ekle
         if (playerVisits[player].length == 0) {
             players.push(player);
         }
-
         playerVisits[player].push(countryId);
+        return true;
     }
 
     function getPlayerVisits(address player) public view returns (uint256[] memory) {
@@ -45,18 +50,16 @@ contract CountryRegistry {
         require(countryId < countries.length, "Country does not exist");
         return countries[countryId];
     }
-
-    function getVisitCount(address player, uint256 countryId) public view returns (uint256 count) {
-        uint256[] memory visits = playerVisits[player];
-        for (uint256 i = 0; i < visits.length; i++) {
-            if (visits[i] == countryId) {
-                count++;
-            }
+ 
+    function getAllCountries() public view returns (Country[] memory) {
+        Country[] memory allCountries = new Country[](countryCount);
+        for (uint256 i = 0; i < countryCount; i++) {
+            allCountries[i] = countries[i];
         }
+        return allCountries;
     }
 
     function getTotalVisitCost(address player) public view returns (uint256 totalCost) {
-        
         uint256[] memory visits = playerVisits[player];
         for (uint256 i = 0; i < visits.length; i++) {
             uint256 countryId = visits[i];
@@ -68,6 +71,7 @@ contract CountryRegistry {
 
     function resetAll() public onlyAdmin {
         delete countries;
+        countryCount = 0;
         uint256 len = players.length;
         for (uint256 i = 0; i < len; i++) {
             delete playerVisits[players[i]];

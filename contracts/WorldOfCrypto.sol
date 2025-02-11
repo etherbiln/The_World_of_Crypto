@@ -2,10 +2,10 @@
 pragma solidity ^0.8.2;
 
 import "./GameMaster.sol";
-import "./Randomness.sol";
-import "./RewardCalculator.sol";
+import "./random/Randomness.sol";
+import "./utils/RewardCalculator.sol";
 import "./CountryRegistry.sol";
-import "./AntiExploit.sol";
+import "./utils/AntiExploit.sol";
 import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
@@ -15,7 +15,7 @@ contract WorldOfCrypto {
     RewardCalculator public rewardCalculator;
     CountryRegistry public countryRegistry;
     AntiExploit public antiExploit;
-    IERC721 public treasureNFT;
+    IERC721 public worlds;
     IERC20 public woC;
 
 
@@ -37,7 +37,7 @@ contract WorldOfCrypto {
     ) {
         rewardCalculator = RewardCalculator(_rewardCalculatorAddress);
         countryRegistry = CountryRegistry(_countryRegistryAddress);
-        treasureNFT = IERC721(_treasureNFTAddress);
+        worlds = IERC721(_treasureNFTAddress);
         woC = IERC20(_woC);
         randomness = Randomness(_randomnessAddress);
         antiExploit = AntiExploit(_antiExploitAddress);
@@ -47,7 +47,7 @@ contract WorldOfCrypto {
     function joinGame() public returns(bool) {
         require(msg.sender != address(0), "Invalid player address");        
         require(!isInGame[msg.sender], "You are already in the game.");
-        require(treasureNFT.balanceOf(msg.sender) > 0, "You must own at least one Treasure NFT to join the game.");
+        require(worlds.balanceOf(msg.sender) > 0, "You must own at least one Treasure NFT to join the game.");
 
         // Eğer oyun başlamadıysa, oyuncuyu ilk katılan olarak ekleyebiliriz
         if (playersInGame.length == 0) {

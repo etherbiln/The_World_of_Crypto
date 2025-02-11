@@ -1,29 +1,29 @@
 // SPDX-License-Identifier: SEE LICENSE IN LICENSE
 pragma solidity ^0.8.2;
 
-import "./PlayerNFT.sol";
-import "./WoC.sol";
-import "./WorldOfCyrpto.sol";
-import "./RewardCalculator.sol";
+import "./nft/Worlds.sol";
+import "./token/WoC.sol";
+import "./WorldOfCrypto.sol";
+import "./utils/RewardCalculator.sol";
 
 contract GameMaster {
     address public admin;
 
-    WorldOfCyrpto public worldOfCyrpto;
-    PlayerNFT public playerNFT;
+    WorldOfCrypto public worldOfCyrpto;
     WoC public woC;
+    Worlds public worlds;
     RewardCalculator public rewardCalculator;
 
     constructor(address _nftAddress, address _tokenAddress, address _worldOfCyrpto,address _rewardCalculator) {
         admin = msg.sender;
-        playerNFT = PlayerNFT(_nftAddress);
+        worlds = Worlds(_nftAddress);
         woC = WoC(_tokenAddress);
-        worldOfCyrpto = WorldOfCyrpto(_worldOfCyrpto);
+        worldOfCyrpto = WorldOfCrypto(_worldOfCyrpto);
         rewardCalculator = RewardCalculator(_rewardCalculator);
     }
 
     function updateNFTAddress(address _nftAddress) public onlyAdmin {
-        playerNFT = PlayerNFT(_nftAddress);
+        worlds = Worlds(_nftAddress);
     }
     
     function updateCalculatorAddress(address _rewardCalculator) public onlyAdmin {
@@ -35,7 +35,7 @@ contract GameMaster {
     }
 
     function updateWorldOfCyrptoAddress(address _worldOfCyrpto) public onlyAdmin {
-        worldOfCyrpto = WorldOfCyrpto(_worldOfCyrpto);
+        worldOfCyrpto = WorldOfCrypto(_worldOfCyrpto);
     }
 
     modifier onlyAdmin() {

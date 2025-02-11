@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: SEE LICENSE IN LICENSE
 pragma solidity ^0.8.2;
 
-import "./CountryRegistry.sol";
+import "../CountryRegistry.sol";
 
 contract RewardCalculator {
 
