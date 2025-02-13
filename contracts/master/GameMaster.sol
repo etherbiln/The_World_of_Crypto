@@ -1,18 +1,14 @@
 // SPDX-License-Identifier: SEE LICENSE IN LICENSE
 pragma solidity ^0.8.2;
 
-// NFT tier management contract
-import "./nft/TieredWorlds.sol";
-// In-game ERC20 token contract
-import "./token/WoC.sol";
 // Main game logic contract
-import "./WorldOfCrypto.sol";
+import "../WorldOfCrypto.sol";
 // Reward calculation algorithms
-import "./utils/RewardCalculator.sol";
+import "../utils/RewardCalculator.sol";
 // Security and exploit prevention mechanisms
-import "./utils/AntiExploit.sol";
+import "../utils/AntiExploit.sol";
 // Country registry system
-import "./CountryRegistry.sol";
+import "../CountryRegistry.sol";
 
 /**
  * @title GameMaster - Central Management Contract for Game Ecosystem
@@ -34,12 +30,6 @@ contract GameMaster {
     /// @dev System administrator address (Recommended to use multi-sig wallet)
     address public admin;
 
-    // Token contracts
-    /// @notice NFT tier management contract
-    TieredWorlds public tieredWorlds;
-    /// @notice In-game ERC20 token contract
-    WoC public woC;
-
     // Subsystems
     /// @notice Anomaly detection and prevention system
     AntiExploit public antiExploit;
@@ -58,8 +48,6 @@ contract GameMaster {
 
     // Events (For transparency and traceability)
     event AdminTransferred(address indexed previousAdmin, address indexed newAdmin);
-    event TieredWorldsUpdated(address indexed newAddress);
-    event WoCUpdated(address indexed newAddress);
     event AntiExploitUpdated(address indexed newAddress);
     event RewardCalculatorUpdated(address indexed newAddress);
     event WorldOfCryptoUpdated(address indexed newAddress);
@@ -67,8 +55,6 @@ contract GameMaster {
 
     /**
      * @dev Contract initialization - Initial addresses for all system components
-     * @param _tieredWorlds TieredWorlds NFT contract address
-     * @param _woC WoC ERC20 token contract address
      * @param _rewardCalculator Reward calculation module address
      * @param _antiExploit Security module address
      * @param _worldOfCrypto Main game contract address
@@ -88,8 +74,6 @@ contract GameMaster {
         admin = msg.sender;
         
         // Contract address assignments
-        tieredWorlds = TieredWorlds(_tieredWorlds);
-        woC = WoC(_woC);
         rewardCalculator = RewardCalculator(_rewardCalculator);
         antiExploit = AntiExploit(_antiExploit);
         worldOfCrypto = WorldOfCrypto(_worldOfCrypto);
@@ -134,26 +118,6 @@ contract GameMaster {
     // 2. Zero-address check
     // 3. Contract assignment
     // 4. Relevant event emission
-
-    /**
-     * @dev Updates NFT contract address
-     * @param _tieredWorlds New TieredWorlds contract address
-     */
-    function updateNFTAddress(address _tieredWorlds) external onlyAdmin {
-        if (_tieredWorlds == address(0)) revert ContractUpdateFailed();
-        tieredWorlds = TieredWorlds(_tieredWorlds);
-        emit TieredWorldsUpdated(_tieredWorlds);
-    }
-
-    /**
-     * @dev Updates ERC20 token contract address
-     * @param _tokenAddress New WoC token contract address
-     */
-    function updateTokenAddress(address _tokenAddress) external onlyAdmin {
-        if (_tokenAddress == address(0)) revert ContractUpdateFailed();
-        woC = WoC(_tokenAddress);
-        emit WoCUpdated(_tokenAddress);
-    }
 
     /**
      * @dev Updates Anti-Exploit module address
