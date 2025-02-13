@@ -2,7 +2,7 @@
 pragma solidity ^0.8.2;
 
 import "./GameMaster.sol";
-import "./random/Randomness.sol";
+//import "./random/VRFConsumer.sol";
 import "./utils/RewardCalculator.sol";
 import "./CountryRegistry.sol";
 import "./utils/AntiExploit.sol";
@@ -11,7 +11,7 @@ import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 contract WorldOfCrypto {
     GameMaster public gameMaster;
-    Randomness public randomness;
+    //VRFConsumer public vRFConsumer;
     RewardCalculator public rewardCalculator;
     CountryRegistry public countryRegistry;
     AntiExploit public antiExploit;
@@ -28,7 +28,7 @@ contract WorldOfCrypto {
     
 
     constructor(
-        address _randomnessAddress,
+        // address _vRFConsumerAddress,
         address _rewardCalculatorAddress,
         address _countryRegistryAddress,
         address _antiExploitAddress,
@@ -39,7 +39,7 @@ contract WorldOfCrypto {
         countryRegistry = CountryRegistry(_countryRegistryAddress);
         worlds = IERC721(_treasureNFTAddress);
         woC = IERC20(_woC);
-        randomness = Randomness(_randomnessAddress);
+        // vRFConsumer = VRFConsumer(_vRFConsumer);
         antiExploit = AntiExploit(_antiExploitAddress);
     }
 

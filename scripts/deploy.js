@@ -12,7 +12,7 @@ async function main() {
 
     // Deploy PlayerNFT
     const PlayerNFT = await ethers.getContractFactory("Worlds");
-    const playerNFT = await PlayerNFT.deploy();
+    const playerNFT = await PlayerNFT.deploy("https://r.resimlink.com/92vTm_.webp");
     await playerNFT.waitForDeployment();
     console.log("Worlds deployed to:", await playerNFT.getAddress());
 
@@ -34,12 +34,8 @@ async function main() {
     await rewardCalculator.waitForDeployment();
     console.log("RewardCalculator deployed to:", await rewardCalculator.getAddress());
 
-    // Deploy Randomness
-    const Randomness = await ethers.getContractFactory("Randomness");
-    const randomness = await Randomness.deploy(500);
-    await randomness.waitForDeployment();
-    console.log("Randomness deployed to:", await randomness.getAddress());
 
+    
     // Deploy WorldOfCrypto
     const WorldOfCrypto = await ethers.getContractFactory("WorldOfCrypto");
     const worldOfCrypto = await WorldOfCrypto.deploy(
@@ -47,7 +43,7 @@ async function main() {
         await countryRegistry.getAddress(),
         await playerNFT.getAddress(),
         await woC.getAddress(),
-        await randomness.getAddress(),
+        //await randomness.getAddress(),
         await antiExploit.getAddress()
     );
     await worldOfCrypto.waitForDeployment();

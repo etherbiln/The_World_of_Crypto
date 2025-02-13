@@ -875,7 +875,7 @@
       ]
     },
     "/mnt/c/Users/yakup/Desktop/The_World_of_Cyrpto/contracts/GameMaster.sol": {
-      "lastModificationDate": 1739309368463,
+      "lastModificationDate": 1739444670704,
       "contentHash": "49ba2fa5c6a88c4b685382805859e3b6",
       "sourceName": "contracts/GameMaster.sol",
       "solcConfig": {
@@ -916,8 +916,8 @@
       ]
     },
     "/mnt/c/Users/yakup/Desktop/The_World_of_Cyrpto/contracts/CountryRegistry.sol": {
-      "lastModificationDate": 1739309376141,
-      "contentHash": "09cd02ca7c748fdbfe1d8e272a3d2e3d",
+      "lastModificationDate": 1739444667066,
+      "contentHash": "d087b1e8af57e6a1b1b1d06bb50858b0",
       "sourceName": "contracts/CountryRegistry.sol",
       "solcConfig": {
         "version": "0.8.20",
@@ -943,9 +943,7 @@
           }
         }
       },
-      "imports": [
-        "./random/Randomness.sol"
-      ],
+      "imports": [],
       "versionPragmas": [
         "^0.8.2"
       ],
@@ -1789,8 +1787,8 @@
       ]
     },
     "/mnt/c/Users/yakup/Desktop/The_World_of_Cyrpto/contracts/WorldOfCrypto.sol": {
-      "lastModificationDate": 1739309365999,
-      "contentHash": "3ac9f232a841b92824319f85ad8d3771",
+      "lastModificationDate": 1739444689016,
+      "contentHash": "7deaaf3c96c52eb71a0530a338ee62d3",
       "sourceName": "contracts/WorldOfCrypto.sol",
       "solcConfig": {
         "version": "0.8.20",
@@ -1818,7 +1816,6 @@
       },
       "imports": [
         "./GameMaster.sol",
-        "./random/Randomness.sol",
         "./utils/RewardCalculator.sol",
         "./CountryRegistry.sol",
         "./utils/AntiExploit.sol",
@@ -2178,115 +2175,8 @@
         "IERC1155Receiver"
       ]
     },
-    "/mnt/c/Users/yakup/Desktop/The_World_of_Cyrpto/contracts/random/VRFConsumer.sol": {
-      "lastModificationDate": 1739308990288,
-      "contentHash": "06a70916adce92fa68ea4c9e61a9ac93",
-      "sourceName": "contracts/random/VRFConsumer.sol",
-      "solcConfig": {
-        "version": "0.8.20",
-        "settings": {
-          "evmVersion": "paris",
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [],
-      "artifacts": []
-    },
-    "/mnt/c/Users/yakup/Desktop/The_World_of_Cyrpto/contracts/random/VRFConsumerBase.sol": {
-      "lastModificationDate": 1739308502567,
-      "contentHash": "17b665f47b07a4a04a3513642b411ce7",
-      "sourceName": "contracts/random/VRFConsumerBase.sol",
-      "solcConfig": {
-        "version": "0.8.20",
-        "settings": {
-          "evmVersion": "paris",
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.4"
-      ],
-      "artifacts": [
-        "VRFConsumerBase"
-      ]
-    },
-    "/mnt/c/Users/yakup/Desktop/The_World_of_Cyrpto/contracts/random/Randomness.sol": {
-      "lastModificationDate": 1739309254468,
-      "contentHash": "9abafed6c03ee79aef5afd4addf59389",
-      "sourceName": "contracts/random/Randomness.sol",
-      "solcConfig": {
-        "version": "0.8.20",
-        "settings": {
-          "evmVersion": "paris",
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "@chainlink/contracts/src/v0.8/vrf/VRFConsumerBase.sol",
-        "@openzeppelin/contracts/access/Ownable.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.2"
-      ],
-      "artifacts": [
-        "Randomness"
-      ]
-    },
     "/mnt/c/Users/yakup/Desktop/The_World_of_Cyrpto/contracts/utils/RewardCalculator.sol": {
-      "lastModificationDate": 1739309193720,
+      "lastModificationDate": 1739389058027,
       "contentHash": "1b2382f57199663f3022fad4279bfe61",
       "sourceName": "contracts/utils/RewardCalculator.sol",
       "solcConfig": {
@@ -2396,6 +2286,78 @@
       ],
       "artifacts": [
         "Worlds"
+      ]
+    },
+    "/mnt/c/Users/yakup/Desktop/The_World_of_Cyrpto/node_modules/@chainlink/contracts/src/v0.8/vrf/VRFConsumerBaseV2.sol": {
+      "lastModificationDate": 1739174425894,
+      "contentHash": "06f8ab6bd949cea1abd42940d7965d65",
+      "sourceName": "@chainlink/contracts/src/v0.8/vrf/VRFConsumerBaseV2.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.4"
+      ],
+      "artifacts": [
+        "VRFConsumerBaseV2"
+      ]
+    },
+    "/mnt/c/Users/yakup/Desktop/The_World_of_Cyrpto/node_modules/@chainlink/contracts/src/v0.8/vrf/interfaces/VRFCoordinatorV2Interface.sol": {
+      "lastModificationDate": 1739174425983,
+      "contentHash": "c4963e3862ffee2974cc634689745531",
+      "sourceName": "@chainlink/contracts/src/v0.8/vrf/interfaces/VRFCoordinatorV2Interface.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "VRFCoordinatorV2Interface"
       ]
     }
   }
