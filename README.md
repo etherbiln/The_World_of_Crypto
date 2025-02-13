@@ -3,20 +3,6 @@
 ## Overview
 **The World of Crypto** is a decentralized, blockchain-based exploration game where players travel across Earth, solve culturally themed questions, and earn rewards through NFTs and tokens. Built on Ethereum/Polygon, the game integrates smart contracts for secure ownership, transactions, and rewards.
 
-## Technical Specifications
-### Tech Stack
-- **Blockchain**: Ethereum (Layer 2 for low gas fees)
-- **Smart Contracts**: Solidity (ERC-721 for NFTs, ERC-20 for WoC tokens)
-- **Frontend**: React.js, Web3.js/Ethers.js for wallet integration
-- **Backend**: Node.js (minimal database for off-chain player data)
-- **Storage**: IPFS for NFT metadata
-
-### Key Components
-1. **NFTs (ERC-721)**: Grant access to gameplay and potential bonus rewards.
-2. **WoC Tokens (ERC-20)**: In-game currency for travel fees and transactions.
-3. **Game Logic**: Handles exploration, Q&A, rewards, and refunds.
-4. **Decentralized Economy**: On-chain transactions for transparency.
-
 ---
 
 ## Game Mechanics
@@ -84,17 +70,6 @@ REACT_APP_INFURA_ID=your_infura_key
 - **Questions**: Modify the off-chain API `/questions/{countryId}`.
 - **Refund Percentage**: Adjust refund calculation in the game logic.
 - **Gas Optimization**: Use tools gas station to subsidize fees.
-
----
-
-## Risks & Mitigations
-
-| Risk | Mitigation |
-|------|-----------|
-| High Gas Fees | Deploy on Layer2s; batch transactions. |
-| Security Vulnerabilities | Audit contracts via CertiK/OpenZeppelin. |
-| NFT Verification Bugs | Implement unit tests for ownership checks. |
-| Player Drop-off | Dynamic rewards algorithm (adjust based on activity). |
 
 ---
 
