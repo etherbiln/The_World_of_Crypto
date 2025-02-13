@@ -1,11 +1,8 @@
 // SPDX-License-Identifier: SEE LICENSE IN LICENSE
 pragma solidity ^0.8.2;
 
-// import "./random/VRFConsumer.sol";
-
 contract CountryRegistry {
     address public admin;
-    // Randomness public randomness;
     
     struct Country {
         uint256 id;
@@ -14,17 +11,14 @@ contract CountryRegistry {
         bool treasure;
         bool package;
     }
-
     Country[] public countries;
     uint256 public countryCount;
 
     address[] public players;
     mapping(address => uint256[]) public playerVisits;
     
-   
     constructor() {
         admin = msg.sender;
-        //randomness = Randomness(_randomness);
     }
 
     function addCountry(uint256 id, string memory name, uint256 visitCost) public onlyAdmin {
