@@ -5,6 +5,27 @@
 
 ---
 
+## Deployment Details
+**Network:** Tabi Testnet
+
+**Contract Addresses:**
+- WoC Token: `0xeEc008b71dCbD4ac50f3e7DA6Fceb17A18C9b334`
+- Worlds: `0xb121A1Db3658601F31Da7a895533cD2aDed1b3DA`
+- AntiExploit: `0x35D23B601545EdEAf0fb4A62328AC056164F38DC`
+- CountryRegistry: `0x43d0A2968843bC74a8ecEAE9F331985DDEff977c`
+- RewardCalculator: `0x7E850A71b67568163ba755E9a2E3a9a12A051250`
+- WorldOfCrypto: `0x1461F65Ca84514935D27980747248164840E8594`
+- GameMaster: `0x740982c7B0551896Dc481e7E1Ce8a667a1a75167`
+
+![Deployed Network Screenshot](./images/tabi.png)
+
+## Documentation
+---
+> **Note**: This project is still under development. For more details and updates, please refer to the accompanying project plan in the [Project Plan PDF](./The_World_of_Cyrpto.pdf).
+---
+
+
+
 ## Game Mechanics
 
 ### 1. NFT Verification
@@ -35,43 +56,7 @@
 ---
 
 ## Installation & Setup
-
-### Prerequisites
-- **Node.js** v16+
-- **Truffle/Hardhat**
-- **MetaMask** (sepolia network configured)
-- **IPFS node** (for NFT metadata)
-
-### Steps
-#### Clone Repository:
-```bash
-git clone https://github.com/The_World_of_Cyrpto.git
-cd WoC
-```
-#### Install Dependencies:
-```bash
-npm install
-cd contracts && npm install @openzeppelin/contracts @chainlink/contracts
-```
-#### Deploy Contracts (Hardhat):
-```bash
-npx hardhat compile
-npx hardhat run scripts/deploy.js --network sepolia
-```
-#### Configure Frontend:
-```env
-REACT_APP_CONTRACT_ADDRESS=0x...
-REACT_APP_INFURA_ID=your_infura_key
-```
----
-
-## Configuration
-- **Travel Fees**: Update `countryFees` in game logic.
-- **Questions**: Modify the off-chain API `/questions/{countryId}`.
-- **Refund Percentage**: Adjust refund calculation in the game logic.
-- **Gas Optimization**: Use tools gas station to subsidize fees.
-
----
+//
 
 ## Contributing
 1. Fork the repository.

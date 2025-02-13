@@ -30,9 +30,5 @@ module.exports = {
       blockGasLimit: 30000000,
       gas: 12000000, 
     },
-    rinkeby: {
-      url: "https://eth-rinkeby.alchemyapi.io/v2/123abc123abc123abc123abc123abcde",
-      accounts: [process.env.PRIVATE_KEY]
-    },
   },
 };
