@@ -5,6 +5,12 @@
 
 ---
 
+## Documentation
+---
+> **Note**: This project is still under development. For more details and updates, please refer to the accompanying project plan in the [Project PDF](./The_World_of_Cyrpto.pdf).
+---
+
+
 ## Deployment Details
 **Network:** Tabi Testnet
 
@@ -18,12 +24,6 @@
 - GameMaster: `0x740982c7B0551896Dc481e7E1Ce8a667a1a75167`
 
 ![Deployed Network Screenshot](./images/tabi.png)
-
-## Documentation
----
-> **Note**: This project is still under development. For more details and updates, please refer to the accompanying project plan in the [Project Plan PDF](./The_World_of_Cyrpto.pdf).
----
-
 
 
 ## Game Mechanics
