@@ -1,7 +1,7 @@
 # The World of Crypto - Technical Documentation
 
 ## Overview
-**The World of Crypto** is a decentralized, blockchain-based exploration game where players travel across Earth, solve culturally themed questions, and earn rewards through NFTs and tokens. Built on Ethereum/Polygon, the game integrates smart contracts for secure ownership, transactions, and rewards.
+**The World of Crypto** is a decentralized, blockchain-based exploration game where players travel across Earth, solve culturally themed questions, and earn rewards through NFTs and tokens. Built on Ethereum, the game integrates smart contracts for secure ownership, transactions, and rewards.
 
 ---
 
